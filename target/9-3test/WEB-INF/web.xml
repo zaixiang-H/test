@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+		<!--配置字符编码过滤器 ，由spring提供 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 配置欢迎界面 -->
+		<welcome-file-list>
+			<welcome-file>/all</welcome-file>
+			<welcome-file>index.html</welcome-file>
+			<welcome-file>index.htm</welcome-file>
+		</welcome-file-list>
+		<!-- 配置springmvc servlet -->
+		<servlet>
+			<servlet-name>springMVC</servlet-name>
+			<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+			<load-on-startup>1</load-on-startup>
+		</servlet>
+		<servlet-mapping>
+			<servlet-name>springMVC</servlet-name>
+			<url-pattern>/Demo</url-pattern>
+		</servlet-mapping>
+
+
+	</web-app>
+
+
+	<!--<servlet>
+		&lt;!&ndash;springmvc的核心是DispatcherServlet，它负责控制整个页面的请求路径 &ndash;&gt;
+		<servlet-name>dispatcherServlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+
+	&lt;!&ndash; 配置springmvc servlet 即spring核心转换器 &ndash;&gt;
+	<servlet>
+		<servlet-name>springMVC</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		&lt;!&ndash; 让spring 核心转换器什么时候启动 tomcat启动一秒后启动 &ndash;&gt;
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	&lt;!&ndash; springJDBC 配置 &ndash;&gt;
+	<context-param>
+		&lt;!&ndash; 这个param-name必须是contextConfigLocation &ndash;&gt;
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	&lt;!&ndash; 指定拦截的路径，拦截所有以/结尾的请求 &ndash;&gt;
+	<servlet-mapping>
+		<servlet-name>springMVC</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	&lt;!&ndash;配置字符编码过滤器 ，由spring提供，处理从页面传递中文到后台而出现的中文乱码问题 &ndash;&gt;
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>-->
+
